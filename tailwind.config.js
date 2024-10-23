@@ -10,6 +10,8 @@ export default {
       colors: {
         text: "#FAFAFA",
         secondary: "#F5F5F5",
+        secondary_2: "#DB4444",
+        hover_button: "#E07575",
       },
     },
   },

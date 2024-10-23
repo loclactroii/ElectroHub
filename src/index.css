@@ -12,3 +12,6 @@ html {
     box-sizing: content-box;
   }
 }
+* {
+  scroll-behavior: smooth;
+}
