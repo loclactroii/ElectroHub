@@ -1,3 +1,5 @@
+import { SmallHeartIcon, WatchIcon } from "./Icons";
+
 interface Product {
   rate: number;
   image: string;
@@ -25,46 +27,10 @@ export const Product = ({
         {/* Interact  */}
         <div className="flex flex-col gap-2 absolute right-3 top-3">
           <div className="w-[2.125rem] h-[2.125rem] flex items-center justify-center bg-white rounded-full">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8 5C5.7912 5 4 6.73964 4 8.88594C4 10.6185 4.7 14.7305 11.5904 18.8873C11.7138 18.961 11.8555 19 12 19C12.1445 19 12.2862 18.961 12.4096 18.8873C19.3 14.7305 20 10.6185 20 8.88594C20 6.73964 18.2088 5 16 5C13.7912 5 12 7.35511 12 7.35511C12 7.35511 10.2088 5 8 5Z"
-                stroke="black"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <SmallHeartIcon />
           </div>
           <div className="w-[2.125rem] h-[2.125rem] flex items-center justify-center bg-white rounded-full">
-            <svg
-              width="34"
-              height="34"
-              viewBox="0 0 34 34"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="17" cy="17" r="17" fill="white" />
-              <path
-                d="M26.257 15.962C26.731 16.582 26.731 17.419 26.257 18.038C24.764 19.987 21.182 24 17 24C12.818 24 9.23601 19.987 7.74301 18.038C7.51239 17.7411 7.38721 17.3759 7.38721 17C7.38721 16.6241 7.51239 16.2589 7.74301 15.962C9.23601 14.013 12.818 10 17 10C21.182 10 24.764 14.013 26.257 15.962V15.962Z"
-                stroke="black"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M17 20C18.6569 20 20 18.6569 20 17C20 15.3431 18.6569 14 17 14C15.3431 14 14 15.3431 14 17C14 18.6569 15.3431 20 17 20Z"
-                stroke="black"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <WatchIcon />
           </div>
         </div>
         {/* Product  */}
@@ -85,13 +51,14 @@ export const Product = ({
           </span>
         </div>
         <div className="flex gap-2 items-center">
-          {[1, 2, 3, 4, 5].map((num: number): JSX.Element => {
+          {[1, 2, 3, 4, 5].map((num: number, index: number): JSX.Element => {
             return (
               <svg
                 width="16"
                 height="15"
                 viewBox="0 0 16 15"
                 xmlns="http://www.w3.org/2000/svg"
+                key={index}
               >
                 <path
                   opacity={rating >= num ? "1" : "0.25"}

@@ -1,22 +1,19 @@
+import React from "react";
+import { Title } from "./Title";
 import { Arrows } from "./Arrows";
-import { Clock } from "./Clock";
-import { Hr } from "./Hr";
 import { Button } from "./PrimaryButton";
 import { Product } from "./Product";
-import { Title } from "./Title";
 
-export const FlashSales = () => {
+export const BestSelling = () => {
   return (
-    <div className="mt-36">
-      {/* Head  */}
+    <div>
       <div className="flex gap-[5.44rem] relative">
-        <Title type="Today's" title="Flash Sales" />
-        <Clock />
-        <Arrows />
+        <Title type="This Month" title="Best Selling Products" />
+        <div className="absolute right-0 bottom-0">
+          <Button content="View All" background="red" />
+        </div>
       </div>
-
-      {/* Products  */}
-      <div className="grid grid-cols-4 gap-[3.75rem] mt-10  justify-between">
+      <div className="mt-10 flex flex-wrap justify-between">
         <Product
           title="HAVIT HV-G92 Gamepad"
           rate={40}
@@ -50,11 +47,6 @@ export const FlashSales = () => {
           remaining={88}
         />
       </div>
-
-      <div className="mt-[3.75rem] text-center">
-        <Button content="View All Products" background="red" />
-      </div>
-      <Hr />
     </div>
   );
 };

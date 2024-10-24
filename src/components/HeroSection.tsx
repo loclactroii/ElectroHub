@@ -1,4 +1,5 @@
 import { Banner } from "./Banner";
+import { RightArrowIcon } from "./Icons";
 
 export const HeroSection = () => {
   return (
@@ -7,34 +8,10 @@ export const HeroSection = () => {
       <div className="pt-10 border-r-[1px] min-w-[13.56rem]">
         <ul className="flex flex-col gap-4 font-poppins text-black mr-4 cursor-pointer">
           <li className="flex items-center justify-between">
-            Woman's Fashion{" "}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.95 11.636L8 6.68597L9.414 5.27197L15.778 11.636L9.414 18L8 16.586L12.95 11.636Z"
-                fill="black"
-              />
-            </svg>
+            Woman's Fashion <RightArrowIcon />
           </li>
           <li className="flex items-center justify-between">
-            Men's Fashion{" "}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.95 11.636L8 6.68597L9.414 5.27197L15.778 11.636L9.414 18L8 16.586L12.95 11.636Z"
-                fill="black"
-              />
-            </svg>
+            Men's Fashion <RightArrowIcon />
           </li>
           <li>Electronics</li>
           <li>Home & Lifestyle</li>
