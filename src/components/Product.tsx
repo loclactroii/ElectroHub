@@ -18,39 +18,39 @@ export const Product = ({
   remaining = 0,
 }: Product): JSX.Element => {
   return (
-    <div className="cursor-pointer">
-      <div className="group overflow-hidden p-3 w-[16.875rem] h-[15.625rem] bg-secondary rounded flex items-center justify-center relative">
+    <div className="mt-12 max-w-[16.875rem] cursor-pointer">
+      <div className="group relative flex h-[15.625rem] w-[16.875rem] items-center justify-center overflow-hidden rounded bg-secondary p-3">
         {/* Sale  */}
-        <span className="top-3 left-3 p-[0.25rem_0.75rem] text-xs font-poppins bg-secondary_2 rounded text-white absolute">
+        <span className="absolute left-3 top-3 rounded bg-secondary_2 p-[0.25rem_0.75rem] font-poppins text-xs text-white">
           -{rate}%
         </span>
         {/* Interact  */}
-        <div className="flex flex-col gap-2 absolute right-3 top-3">
-          <div className="w-[2.125rem] h-[2.125rem] flex items-center justify-center bg-white rounded-full">
+        <div className="absolute right-3 top-3 flex flex-col gap-2">
+          <div className="flex h-[2.125rem] w-[2.125rem] items-center justify-center rounded-full bg-white">
             <SmallHeartIcon />
           </div>
-          <div className="w-[2.125rem] h-[2.125rem] flex items-center justify-center bg-white rounded-full">
+          <div className="flex h-[2.125rem] w-[2.125rem] items-center justify-center rounded-full bg-white">
             <WatchIcon />
           </div>
         </div>
         {/* Product  */}
-        <img className="max-w-[10.75rem] max-h-[9.5rem]" src={image} alt="" />
+        <img className="max-h-[9.5rem]" src={image} alt="" />
         {/* Add to card  */}
-        <button className="duration-200 absolute group-hover:h-[2.5625rem] h-0 trans bottom-0 w-full bg-black font-poppins font-medium text-white">
+        <button className="trans absolute bottom-0 h-0 w-full bg-black font-poppins font-medium text-white duration-200 group-hover:h-[2.5625rem]">
           Add To Cart
         </button>
       </div>
 
       {/* Product info  */}
-      <div className="mt-4">
-        <h2 className="font-poppins font-medium cursor-pointer]">{title}</h2>
-        <div className="mt-2 mb-2 flex gap-3 font-poppins">
-          <h3 className="text-secondary_2 font-normal">${price}</h3>
+      <div className="mt-4 inline-block">
+        <h2 className="cursor-pointer] font-poppins font-medium">{title}</h2>
+        <div className="mb-2 mt-2 flex gap-3 font-poppins">
+          <h3 className="font-normal text-secondary_2">${price}</h3>
           <span className="line-through opacity-50">
             ${rate ? (price * 100) / rate : 0}
           </span>
         </div>
-        <div className="flex gap-2 items-center">
+        <div className="flex items-center gap-2">
           {[1, 2, 3, 4, 5].map((num: number, index: number): JSX.Element => {
             return (
               <svg
@@ -87,7 +87,7 @@ export const Product = ({
             />
           </svg> */}
 
-          <span className="text-sm font-poppins font-medium opacity-50 mb-[-2px]">
+          <span className="mb-[-2px] font-poppins text-sm font-medium opacity-50">
             ({remaining})
           </span>
         </div>

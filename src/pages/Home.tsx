@@ -8,7 +8,7 @@ import { OurProducts } from "../components/OurProducts";
 
 export const Home = () => {
   return (
-    <div className="m-[0_auto] max-w-[73.125rem]">
+    <div className="m-[0_auto] max-w-[73.125rem] pl-8 pr-8">
       <HeroSection />
       <FlashSales />
       <Category />

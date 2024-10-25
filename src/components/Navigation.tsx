@@ -1,11 +1,15 @@
+import { Avatar } from "./Avatar";
 import { CartIcon, HeartIcon, SearchIcon } from "./Icons";
 
 export const Navigation = () => {
+  const isLogin: boolean = true;
   return (
     <div>
-      <nav className="justify-between h-[5.88rem] flex max-w-[73.125rem] m-[0_auto] pb-4 items-end">
+      <nav className=" pl-8 pr-8 justify-between h-[5.88rem] flex max-w-[73.125rem] m-[0_auto] pb-4 items-end">
         {/* Logo  */}
-        <h1 className="text-2xl font-bold font-inter">ElectroHub</h1>
+        <a href="/">
+          <h1 className="text-2xl font-bold font-inter">ElectroHub</h1>
+        </a>
         {/* Navigation  */}
         <div>
           <ul className="flex gap-12 font-poppins">
@@ -39,6 +43,7 @@ export const Navigation = () => {
           <div className="ml-6 flex items-center gap-4">
             <HeartIcon />
             <CartIcon />
+            {isLogin && <Avatar />}
           </div>
         </div>
       </nav>
