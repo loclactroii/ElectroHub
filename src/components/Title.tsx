@@ -1,9 +1,6 @@
-interface Title {
-  title: string;
-  type: string;
-}
+import { ITitle } from "../interfaces/interfaces";
 
-export const Title = ({ title, type }: Title): JSX.Element => {
+export const Title = ({ title, type }: ITitle): JSX.Element => {
   return (
     <div>
       <div className="flex items-center gap-4">

@@ -7,10 +7,12 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Wishlist } from "./pages/Wishlist";
+import { Cart } from "./pages/Cart";
+import { Checkout } from "./pages/Checkout";
 
 function App() {
   return (
-    <div className="w-full min-h-screen ">
+    <div className="min-h-screen w-full">
       <TopHeader />
       <Navigation />
       <Routes>
@@ -18,6 +20,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       <Footer />
     </div>
