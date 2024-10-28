@@ -21,8 +21,8 @@ export interface IAccount {
 }
 
 export interface ICardItemChild {
-  cardItem: ICartItem;
   setTotal: React.Dispatch<React.SetStateAction<number>>;
+  id: string;
   index: number;
 }
 

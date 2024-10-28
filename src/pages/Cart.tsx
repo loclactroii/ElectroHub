@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Button } from "../components/PrimaryButton";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../hooks/useStore";
@@ -6,8 +5,7 @@ import { ICartItem } from "../interfaces/interfaces";
 import { CartItem } from "../components/CartItem";
 
 export const Cart = () => {
-  const { CartItems } = useStore();
-  const [total, setTotal] = useState(0);
+  const { CartItems, total, setTotal } = useStore();
   const navigate = useNavigate();
 
   return (
@@ -30,7 +28,7 @@ export const Cart = () => {
         {CartItems.map((item: ICartItem, index: number): JSX.Element => {
           return (
             <div key={index}>
-              <CartItem index={index} cardItem={item} setTotal={setTotal} />
+              <CartItem id={item.id} index={index} setTotal={setTotal} />
             </div>
           );
         })}

@@ -11,8 +11,19 @@ html {
     border: 2px solid #fff;
     box-sizing: content-box;
   }
+
+  .banner-active-1 {
+    opacity: 1;
+    background-color: red;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    box-sizing: content-box;
+  }
 }
 * {
   scroll-behavior: smooth;
   font-family: "Poppins";
+}
+.selected {
+  color: #db4444;
+  opacity: 1;
 }

@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { ICartItem, ICategory } from "../interfaces/interfaces";
 import {
   CameraIcon,
@@ -13,6 +13,11 @@ type StoreContextType = {
   CartItems: ICartItem[];
   Categories: ICategory[];
   isLogin: boolean;
+  total: number;
+  setTotal: React.Dispatch<React.SetStateAction<number>>;
+  totalPrice: () => void;
+  data: ICartItem[];
+  setData: React.Dispatch<React.SetStateAction<ICartItem[]>>;
 };
 
 interface StoreProviderProps {
@@ -69,8 +74,38 @@ const ContextProvider: React.FC<StoreProviderProps> = ({ children }) => {
     },
   ];
 
+  const [total, setTotal] = useState<number>(0);
+
+  const [data, setData] = useState(CartItems);
+  console.log(data);
+
+  const totalPrice = () => {
+    let total = 0;
+    CartItems.map((item) => {
+      total = total + item.price * item.quantity;
+    });
+    setTotal(total);
+  };
+
+  console.log("store render");
+
+  useEffect(() => {
+    totalPrice();
+  }, []);
+
   return (
-    <StoreContext.Provider value={{ CartItems, Categories, isLogin }}>
+    <StoreContext.Provider
+      value={{
+        CartItems,
+        Categories,
+        isLogin,
+        total,
+        setTotal,
+        totalPrice,
+        data,
+        setData,
+      }}
+    >
       {children}
     </StoreContext.Provider>
   );

@@ -23,7 +23,9 @@ export const Navigation = () => {
               <a href="#contact">Contact</a>
             </li>
             <li className="flex h-6 items-center border-b-[1px] border-transparent">
-              <a href="#about">About</a>
+              <a onClick={() => navigate("/about")} href="">
+                About
+              </a>
             </li>
             <li className="flex h-6 items-center border-b-[1px] border-transparent">
               <a href="#sign-up">Sign Up</a>

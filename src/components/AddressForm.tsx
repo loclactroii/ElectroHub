@@ -86,6 +86,16 @@ export const AddressForm = () => {
           className="h-[3.125rem] bg-secondary pl-4"
         />
       </div>
+      <div className="flex items-center">
+        <input
+          type="checkbox"
+          id="save"
+          className="mr-4 h-6 w-6 cursor-pointer rounded accent-secondary_2"
+        />
+        <label htmlFor="save">
+          Save this information for faster check-out next time
+        </label>
+      </div>
     </form>
   );
 };
