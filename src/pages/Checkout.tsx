@@ -1,18 +1,14 @@
-import { useEffect } from "react";
 import { AddressForm } from "../components/AddressForm";
-import { useStore } from "../hooks/useStore";
-import { ICartItem } from "../interfaces/interfaces";
 import { Button } from "../components/PrimaryButton";
+import { useSelector } from "react-redux";
+import { AppState, ICartItem } from "../redux";
 
 export const Checkout = () => {
-  const { CartItems, total } = useStore();
-
-  useEffect(() => {
-    console.log(CartItems);
-  }, [total]);
+  const CartItems = useSelector((state: AppState) => state.cart.items);
+  const totalAmount = useSelector((state: AppState) => state.cart.totalAmount);
 
   return (
-    <div className="m-[5rem_auto] max-w-[73.125rem] pl-8 pr-8">
+    <div>
       <div className="mb-20 mt-20 flex gap-3">
         <span className="text-sm opacity-50">Account</span>
         <span className="text-sm opacity-50">/</span>
@@ -45,7 +41,7 @@ export const Checkout = () => {
                   />
                   <p className="ml-6">{item.name}</p>
                 </div>
-                <span className="text-end">${item.price * item.quantity}</span>
+                <span className="text-end">${item.total}</span>
               </div>
             );
           })}
@@ -54,7 +50,7 @@ export const Checkout = () => {
             <div className="mt-6 flex flex-col gap-4">
               <div className="flex justify-between">
                 <span className="">Subtotal:</span>
-                <span>${total}</span>
+                <span>${totalAmount}</span>
               </div>
               <hr />
               <div className="flex justify-between">
@@ -64,7 +60,7 @@ export const Checkout = () => {
               <hr />
               <div className="flex justify-between">
                 <span className="">Total:</span>
-                <span>${total}</span>
+                <span>${totalAmount}</span>
               </div>
             </div>
           </div>

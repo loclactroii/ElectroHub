@@ -1,15 +1,27 @@
+import { useDispatch } from "react-redux";
 import { IProduct } from "../interfaces/interfaces";
 import { SmallHeartIcon, WatchIcon } from "./Icons";
+import { addCart, CartActionTypes } from "../redux";
 
 export const Product = ({
   id,
   rate,
-  image,
-  title = "--- --- --- --- ---",
+  mainImage,
+  name = "--- --- --- --- ---",
   price = 0,
   rating = 3,
-  remaining = 0,
+  reviews = 0,
 }: IProduct): JSX.Element => {
+  const dispatch: React.Dispatch<CartActionTypes> = useDispatch();
+  const addToCart = (
+    productId: string,
+    price: number,
+    name: string,
+    image: string,
+  ) => {
+    dispatch(addCart(productId, price, name, image));
+  };
+
   return (
     <div className="mt-12 max-w-[16.875rem] cursor-pointer" key={id}>
       <div className="group relative flex h-[15.625rem] w-[16.875rem] items-center justify-center overflow-hidden rounded bg-secondary p-3">
@@ -27,21 +39,30 @@ export const Product = ({
           </div>
         </div>
         {/* Product  */}
-        <img className="max-h-[9.5rem]" src={image} alt="" />
+        <img
+          className="max-h-[9.5rem] w-full object-cover"
+          src={mainImage}
+          alt=""
+        />
         {/* Add to card  */}
-        <button className="trans absolute bottom-0 h-0 w-full bg-black font-poppins font-medium text-white duration-200 group-hover:h-[2.5625rem]">
+        <button
+          onClick={() => addToCart(id, price, name, mainImage)}
+          className="trans absolute bottom-0 h-0 w-full bg-black font-poppins font-medium text-white duration-200 group-hover:h-[2.5625rem]"
+        >
           Add To Cart
         </button>
       </div>
 
       {/* Product info  */}
       <div className="mt-4 inline-block">
-        <h2 className="cursor-pointer] font-poppins font-medium">{title}</h2>
+        <div className="min-h-12">
+          <h2 className="cursor-pointer] font-poppins font-medium">{name}</h2>
+        </div>
         <div className="mb-2 mt-2 flex gap-3 font-poppins">
-          <h3 className="font-normal text-secondary_2">${price}</h3>
-          <span className="line-through opacity-50">
-            ${rate ? (price * 100) / rate : 0}
-          </span>
+          <h3 className="font-normal text-secondary_2">
+            ${rate ? Math.floor((price * (100 - rate)) / 100) : 0}
+          </h3>
+          <span className="line-through opacity-50">${price}</span>
         </div>
         <div className="flex items-center gap-2">
           {[1, 2, 3, 4, 5].map((num: number, index: number): JSX.Element => {
@@ -81,7 +102,7 @@ export const Product = ({
           </svg> */}
 
           <span className="mb-[-2px] font-poppins text-sm font-medium opacity-50">
-            ({remaining})
+            ({reviews})
           </span>
         </div>
       </div>

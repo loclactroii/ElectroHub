@@ -1,9 +1,8 @@
-import React from "react";
 import { EditProfileForm } from "../components/EditProfileForm";
 
 export const MyAccount = () => {
   return (
-    <div className="m-[5rem_auto] max-w-[73.125rem] pl-8 pr-8">
+    <div>
       <div className="mb-20 mt-20 flex justify-between">
         <div className="flex gap-3">
           <span className="text-sm opacity-50">Home</span>

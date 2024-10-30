@@ -1,15 +1,16 @@
 import { Button } from "../components/PrimaryButton";
 import { useNavigate } from "react-router-dom";
-import { useStore } from "../hooks/useStore";
-import { ICartItem } from "../interfaces/interfaces";
 import { CartItem } from "../components/CartItem";
+import { useSelector } from "react-redux";
+import { AppState, ICartItem } from "../redux";
 
 export const Cart = () => {
-  const { CartItems, total, setTotal } = useStore();
   const navigate = useNavigate();
+  const CartItems = useSelector((state: AppState) => state.cart.items);
+  const totalAmount = useSelector((state: AppState) => state.cart.totalAmount);
 
   return (
-    <div className="m-[5rem_auto] max-w-[73.125rem] pl-8 pr-8">
+    <div>
       <div className="mb-20 mt-20 flex gap-3">
         <span className="text-sm opacity-50">Home</span>
         <span className="text-sm opacity-50">/</span>
@@ -28,7 +29,7 @@ export const Cart = () => {
         {CartItems.map((item: ICartItem, index: number): JSX.Element => {
           return (
             <div key={index}>
-              <CartItem id={item.id} index={index} setTotal={setTotal} />
+              <CartItem data={item} />
             </div>
           );
         })}
@@ -54,7 +55,7 @@ export const Cart = () => {
             <div className="mt-6 flex flex-col gap-4">
               <div className="flex justify-between">
                 <span className="">Subtotal:</span>
-                <span>${total}</span>
+                <span>${totalAmount}</span>
               </div>
               <hr />
               <div className="flex justify-between">
@@ -64,7 +65,7 @@ export const Cart = () => {
               <hr />
               <div className="flex justify-between">
                 <span className="">Total:</span>
-                <span>${total}</span>
+                <span>${totalAmount}</span>
               </div>
               <div className="flex justify-center">
                 <Button

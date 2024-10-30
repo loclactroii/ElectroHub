@@ -18,6 +18,28 @@ html {
     border: 2px solid rgba(0, 0, 0, 0.3);
     box-sizing: content-box;
   }
+
+  .color-active {
+    border: 2px solid #000;
+    padding: 2px;
+  }
+
+  .size-active {
+    background-color: #db4444;
+    border-color: transparent;
+    color: #fafafa;
+  }
+
+  /* > 1170px  */
+  .responsive_1 {
+    max-width: 73.125rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .active {
+    border-color: rgba(0, 0, 0, 0.5);
+  }
 }
 * {
   scroll-behavior: smooth;

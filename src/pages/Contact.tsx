@@ -3,14 +3,14 @@ import { ContactForm } from "../components/ContactForm";
 
 export const Contact = () => {
   return (
-    <div className="m-[5rem_auto] max-w-[73.125rem] pl-8 pr-8">
+    <div>
       <div className="mb-20 mt-20 flex items-center gap-3">
         <span className="text-sm opacity-50">Home</span>
         <span className="text-sm opacity-50">/</span>
         <span>Contact</span>
       </div>
-      <div className="flex justify-between gap-8">
-        <div className="mb-[8.75rem] inline-block min-w-[21.25rem] rounded p-[2.5rem_2.1875rem_3.1875rem_2.1875rem] shadow-[0_1px_13px_0_rgba(0,0,0,0.05)]">
+      <div className="mb-[8.75rem] flex justify-between gap-8">
+        <div className="inline-block min-w-[21.25rem] rounded p-[2.5rem_2.1875rem_3.1875rem_2.1875rem] shadow-[0_1px_13px_0_rgba(0,0,0,0.05)]">
           {/* Phone & Email  */}
           <div className="flex items-center gap-4">
             <TelephoneIcon />

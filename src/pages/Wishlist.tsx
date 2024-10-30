@@ -3,7 +3,7 @@ import { Title } from "../components/Title";
 
 export const Wishlist = () => {
   return (
-    <div className="m-[5rem_auto] max-w-[73.125rem] pl-8 pr-8">
+    <div className="mt-20">
       {/* Head  */}
       <div className="flex justify-between">
         <span className="text-xl">Wishlist(4)</span>

@@ -1,13 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Avatar } from "./Avatar";
 import { CartIcon, HeartIcon, SearchIcon } from "./Icons";
 import { useStore } from "../hooks/useStore";
 
 export const Navigation = () => {
   const { isLogin } = useStore();
-  const navigate = useNavigate();
   return (
-    <div>
+    <div className="sticky left-0 top-0 z-50 w-full bg-white">
       <nav className="m-[0_auto] flex h-[5.88rem] max-w-[73.125rem] items-end justify-between pb-4 pl-8 pr-8">
         {/* Logo  */}
         <a href="/">
@@ -16,20 +15,30 @@ export const Navigation = () => {
         {/* Navigation  */}
         <div>
           <ul className="flex gap-12 font-poppins">
-            <li className="flex h-6 items-center border-b-[1px] border-black">
-              <a href="#home">Home</a>
-            </li>
-            <li className="flex h-6 items-center border-b-[1px] border-transparent">
-              <a href="#contact">Contact</a>
-            </li>
-            <li className="flex h-6 items-center border-b-[1px] border-transparent">
-              <a onClick={() => navigate("/about")} href="">
-                About
-              </a>
-            </li>
-            <li className="flex h-6 items-center border-b-[1px] border-transparent">
-              <a href="#sign-up">Sign Up</a>
-            </li>
+            <NavLink
+              to="/"
+              className="flex h-6 items-center border-b-[1px] border-transparent"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className="flex h-6 items-center border-b-[1px] border-transparent"
+            >
+              Contact
+            </NavLink>
+            <NavLink
+              to="/about"
+              className="flex h-6 items-center border-b-[1px] border-transparent"
+            >
+              About
+            </NavLink>
+            <NavLink
+              to="/register"
+              className="flex h-6 items-center border-b-[1px] border-transparent"
+            >
+              Sign up
+            </NavLink>
           </ul>
         </div>
 
@@ -46,12 +55,12 @@ export const Navigation = () => {
             <SearchIcon />
           </div>
           <div className="ml-6 flex items-center gap-4">
-            <div onClick={() => navigate("/wishlist")}>
+            <Link to="/wishlist">
               <HeartIcon />
-            </div>
-            <div onClick={() => navigate("/cart")}>
+            </Link>
+            <Link to="/cart">
               <CartIcon />
-            </div>
+            </Link>
             {isLogin && <Avatar />}
           </div>
         </div>

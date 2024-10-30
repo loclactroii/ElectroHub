@@ -8,3 +8,5 @@ export const useStore = () => {
   }
   return data;
 };
+
+// export const useStore = () => {};

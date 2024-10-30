@@ -2,16 +2,16 @@ import { DownArrowIcon } from "./Icons";
 
 export const TopHeader = () => {
   return (
-    <header className="pt-[0.75rem] pb-[0.75rem] p-[] bg-black flex items-center justify-between">
+    <header className="flex items-center justify-between bg-black p-[] pb-[0.75rem] pt-[0.75rem]">
       <div></div>
-      <p className="text-text text-[0.875rem] font-poppins">
+      <p className="font-poppins text-[0.875rem] text-text">
         Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
-        <a href="/" className="ml-2 underline font-semibold">
+        <a href="/" className="ml-2 font-semibold underline">
           ShopNow
         </a>
       </p>
-      <div className="flex items-center mr-[8.5rem]">
-        <span className="text-text text-[0.875rem]">English</span>
+      <div className="mr-[8.5rem] flex items-center">
+        <span className="text-[0.875rem] text-text">English</span>
         <DownArrowIcon />
       </div>
     </header>

@@ -1,31 +1,29 @@
-export interface ICartItem {
-  id: string;
-  image: string;
-  name: string;
-  price: number;
-  quantity: number;
-}
-
+// export interface ICartItem {
+//   id: string;
+//   image: string;
+//   name: string;
+//   price: number;
+//   quantity: number;
+// }
 export interface IProduct {
   id: string;
   rate: number;
-  image: string;
-  title: string;
+  mainImage: string;
+  name: string;
   price: number;
   rating: number;
-  remaining: number;
+  reviews: number;
+  subImage_1?: string;
+  subImage_2?: string;
+  subImage_3?: string;
+  subImage_4?: string;
+  colors?: string[];
+  size?: string[];
 }
 
 export interface IAccount {
   isLogin: boolean;
 }
-
-export interface ICardItemChild {
-  setTotal: React.Dispatch<React.SetStateAction<number>>;
-  id: string;
-  index: number;
-}
-
 export interface ICategory {
   icon: JSX.Element;
   name: string;

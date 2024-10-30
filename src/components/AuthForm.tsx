@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { IAccount } from "../interfaces/interfaces";
 import { GoogleSignUpIcon } from "./Icons";
 import { Button } from "./PrimaryButton";
@@ -29,12 +30,12 @@ export const AuthForm = ({ isLogin }: IAccount): JSX.Element => {
       <div className="mt-8 flex justify-center gap-4">
         <p>{!isLogin ? "Already have account?" : "You want to login"}</p>
         <div className="border-b-[1px] border-[rgba(0,0,0,0.3)]">
-          <a
-            className="cursor-pointer font-poppins"
-            href={!isLogin ? "/login" : "/register"}
+          <Link
+            className="cursor-pointer select-none font-poppins"
+            to={!isLogin ? "/login" : "/register"}
           >
             {!isLogin ? "Login" : "Register"}
-          </a>
+          </Link>
         </div>
       </div>
     </form>

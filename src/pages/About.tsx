@@ -10,7 +10,6 @@ import {
   ShoppingBagIcon,
   TruckIcon,
   TwitterIcon,
-  TwitterIcon_1,
 } from "../components/Icons";
 
 interface Profit {
@@ -68,7 +67,7 @@ const SERVICES: Service[] = [
 
 export const About = () => {
   return (
-    <div className="m-[5rem_auto] max-w-[73.125rem]">
+    <div>
       <div className="mb-20 mt-20 flex gap-3">
         <span className="text-sm opacity-50">Home</span>
         <span className="text-sm opacity-50">/</span>
