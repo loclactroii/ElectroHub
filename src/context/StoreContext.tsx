@@ -135,8 +135,6 @@ const ContextProvider: React.FC<StoreProviderProps> = ({ children }) => {
   const [total, setTotal] = useState<number>(0);
 
   const [data, setData] = useState(CartItems);
-  console.log(data);
-
   const totalPrice = () => {
     let total = 0;
     CartItems.map((item) => {
@@ -144,8 +142,6 @@ const ContextProvider: React.FC<StoreProviderProps> = ({ children }) => {
     });
     setTotal(total);
   };
-
-  console.log("store render");
 
   useEffect(() => {
     totalPrice();

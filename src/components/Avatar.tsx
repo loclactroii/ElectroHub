@@ -7,6 +7,7 @@ import {
   MyReviewsIcon,
   UserIcon,
 } from "./Icons";
+import { Link } from "react-router-dom";
 
 export const Avatar = () => {
   const [show, setShow] = useState(false);
@@ -18,13 +19,15 @@ export const Avatar = () => {
 
       {/* Drop down user  */}
       <div
-        style={{ backdropFilter: "blur(75px)", background: "rgba(0,0,0,0.04)" }}
-        className={`absolute right-0 top-[2.5rem] z-10 box-content flex w-[14rem] select-none flex-col gap-[0.8125rem] rounded p-5 text-white duration-300 ${show ? "opacity-100" : "opacity-0"}`}
+        className={`absolute right-0 top-[2.5rem] z-10 box-content flex w-[14rem] select-none flex-col gap-[0.8125rem] rounded bg-black p-5 text-white duration-300 ${show ? "visible opacity-100" : "hidden opacity-0"}`}
       >
-        <div className="flex cursor-pointer items-center gap-4 duration-300 hover:translate-y-[-0.25rem]">
+        <Link
+          to="/myaccount"
+          className="flex cursor-pointer items-center gap-4 duration-300 hover:translate-y-[-0.25rem]"
+        >
           <UserIcon />
           <p className="font-poppins text-sm">Manage My Account</p>
-        </div>
+        </Link>
         <div className="flex cursor-pointer items-center gap-4 duration-300 hover:translate-y-[-0.25rem]">
           <MyOrderIcon />
           <p className="font-poppins text-sm">My Order</p>

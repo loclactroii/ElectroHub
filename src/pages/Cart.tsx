@@ -2,12 +2,13 @@ import { Button } from "../components/PrimaryButton";
 import { useNavigate } from "react-router-dom";
 import { CartItem } from "../components/CartItem";
 import { useSelector } from "react-redux";
-import { AppState, ICartItem } from "../redux";
+import { RootState } from "../redux/store";
+import { Cart as CartType } from "../redux/types";
 
 export const Cart = () => {
   const navigate = useNavigate();
-  const CartItems = useSelector((state: AppState) => state.cart.items);
-  const totalAmount = useSelector((state: AppState) => state.cart.totalAmount);
+  const CartItems = useSelector((state: RootState) => state.cart.cartList);
+  const totalAmount = useSelector((state: RootState) => state.cart.totalAmount);
 
   return (
     <div>
@@ -26,12 +27,8 @@ export const Cart = () => {
         </div>
 
         {/* Table body  */}
-        {CartItems.map((item: ICartItem, index: number): JSX.Element => {
-          return (
-            <div key={index}>
-              <CartItem data={item} />
-            </div>
-          );
+        {CartItems.map((item: CartType, index: number): JSX.Element => {
+          return <CartItem item={item} key={index} />;
         })}
 
         {/* Buttons  */}
@@ -42,7 +39,7 @@ export const Cart = () => {
 
         {/* Payment  */}
         <div className="mt-20 flex items-center justify-between">
-          <div className="flex h-auto self-start">
+          <div className="flex gap-4 self-start">
             <input
               type="text"
               placeholder="Coupon Code"

@@ -2,16 +2,19 @@ import { Link, NavLink } from "react-router-dom";
 import { Avatar } from "./Avatar";
 import { CartIcon, HeartIcon, SearchIcon } from "./Icons";
 import { useStore } from "../hooks/useStore";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 export const Navigation = () => {
   const { isLogin } = useStore();
+  const CartItems = useSelector((state: RootState) => state.cart.cartList);
   return (
     <div className="sticky left-0 top-0 z-50 w-full bg-white">
       <nav className="m-[0_auto] flex h-[5.88rem] max-w-[73.125rem] items-end justify-between pb-4 pl-8 pr-8">
         {/* Logo  */}
-        <a href="/">
+        <Link to="/">
           <h1 className="font-inter text-2xl font-bold">ElectroHub</h1>
-        </a>
+        </Link>
         {/* Navigation  */}
         <div>
           <ul className="flex gap-12 font-poppins">
@@ -58,8 +61,15 @@ export const Navigation = () => {
             <Link to="/wishlist">
               <HeartIcon />
             </Link>
-            <Link to="/cart">
+            <Link to="/cart" className="relative">
               <CartIcon />
+              {CartItems.length > 0 && (
+                <div className="absolute right-[-3px] top-[-2px] z-50 flex h-4 w-4 items-center justify-center rounded-full bg-[red]">
+                  <span className="text-[11px] text-text">
+                    {CartItems.length}
+                  </span>
+                </div>
+              )}
             </Link>
             {isLogin && <Avatar />}
           </div>

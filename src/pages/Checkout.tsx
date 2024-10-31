@@ -1,11 +1,12 @@
 import { AddressForm } from "../components/AddressForm";
 import { Button } from "../components/PrimaryButton";
 import { useSelector } from "react-redux";
-import { AppState, ICartItem } from "../redux";
+import { RootState } from "../redux/store";
+import { Cart } from "../redux/types";
 
 export const Checkout = () => {
-  const CartItems = useSelector((state: AppState) => state.cart.items);
-  const totalAmount = useSelector((state: AppState) => state.cart.totalAmount);
+  const CartItems = useSelector((state: RootState) => state.cart.cartList);
+  const totalAmount = useSelector((state: RootState) => state.cart.totalAmount);
 
   return (
     <div>
@@ -27,7 +28,7 @@ export const Checkout = () => {
 
         {/* Payment  */}
         <div className="flex w-[32.875rem] flex-col gap-8">
-          {CartItems.map((item: ICartItem, index: number): JSX.Element => {
+          {CartItems.map((item: Cart, index: number): JSX.Element => {
             return (
               <div
                 className="flex max-w-[26.5625rem] items-center justify-between"
@@ -35,8 +36,8 @@ export const Checkout = () => {
               >
                 <div className="flex items-center">
                   <img
-                    src={item.image}
-                    className="h-[3.125rem] w-[3.125rem]"
+                    src={item.mainImage}
+                    className="h-[3.125rem] w-[3.125rem] object-contain"
                     alt=""
                   />
                   <p className="ml-6">{item.name}</p>

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { IProduct } from "../interfaces/interfaces";
 import { SmallHeartIcon, WatchIcon } from "./Icons";
-import { addCart, CartActionTypes } from "../redux";
+import { addCart } from "../redux/cart.reducer";
 
 export const Product = ({
   id,
@@ -12,14 +12,16 @@ export const Product = ({
   rating = 3,
   reviews = 0,
 }: IProduct): JSX.Element => {
-  const dispatch: React.Dispatch<CartActionTypes> = useDispatch();
+  const dispatch = useDispatch();
   const addToCart = (
     productId: string,
     price: number,
     name: string,
     image: string,
   ) => {
-    dispatch(addCart(productId, price, name, image));
+    dispatch(
+      addCart({ id: productId, name: name, mainImage: image, price: price }),
+    );
   };
 
   return (

@@ -1,23 +1,25 @@
-// import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
-// import cartItemReducer from "./slices/cartSlice";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import cartReducer from "./cart.reducer";
+import storage from "redux-persist/lib/storage";
+import { persistReducer } from "redux-persist";
 
-// export const store = configureStore({
-//   reducer: {
-//     cartItem: cartItemReducer,
-//   },
-// });
+const persistConfig = {
+  key: "root",
+  version: 1,
+  storage,
+};
 
-// // Infer the type of 'store'
-// export type AppStore = typeof store;
-// export type RootState = ReturnType<AppStore["getState"]>;
+const reducer = combineReducers({
+  cart: cartReducer,
+});
 
-// // Infer the 'AppDispatch' type from the store itself
-// export type AppDispatch = AppStore["dispatch"];
+const persistedReducer = persistReducer(persistConfig, reducer);
 
-// // Define a reuseable type describing thunk functions
-// export type AppThunk<ThunkReturnType = void> = ThunkAction<
-//   ThunkReturnType,
-//   RootState,
-//   unknown,
-//   Action
-// >;
+export const store = configureStore({
+  reducer: persistedReducer,
+});
+
+// Get RootState & AppDispatch from store
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;
