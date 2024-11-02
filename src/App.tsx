@@ -31,7 +31,8 @@ function App() {
           <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/product" element={<ProductDetail />} />
+          {/* <Route path="/product" element={<ProductDetail />} /> */}
+          <Route path="/product/:productId" element={<ProductDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
