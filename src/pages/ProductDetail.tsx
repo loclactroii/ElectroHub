@@ -42,54 +42,56 @@ export const ProductDetail = () => {
         <span className="text-sm opacity-50">/</span>
         <span>{data?.name}</span>
       </div>
-      <div className="mt-20 flex">
-        {/* Left content  */}
-        <div className="flex max-w-[10.625rem] flex-col justify-between gap-4">
-          <div className="flex h-[8.625rem] cursor-pointer items-center justify-center rounded bg-secondary p-2">
+      <div className="mt-20 flex max-sm:flex-col">
+        <div className="flex max-[900px]:flex-col-reverse">
+          {/* Left content  */}
+          <div className="product_responsive_1 flex max-w-[10.625rem] flex-col justify-between gap-4">
+            <div className="flex h-[8.625rem] cursor-pointer items-center justify-center rounded bg-secondary p-2">
+              <img
+                src={data?.subImage_1}
+                className="w-full object-cover"
+                alt=""
+                onClick={() => (mainImageRef.current.src = data?.subImage_1)}
+              />
+            </div>
+            <div className="flex h-[8.625rem] cursor-pointer items-center justify-center rounded bg-secondary p-2">
+              <img
+                src={data?.subImage_2}
+                className="w-full object-cover"
+                alt=""
+                onClick={() => (mainImageRef.current.src = data?.subImage_2)}
+              />
+            </div>
+            <div className="flex h-[8.625rem] cursor-pointer items-center justify-center rounded bg-secondary p-2">
+              <img
+                src={data?.subImage_3}
+                className="w-full object-cover"
+                alt=""
+                onClick={() => (mainImageRef.current.src = data?.subImage_3)}
+              />
+            </div>
+            <div className="flex h-[8.625rem] cursor-pointer items-center justify-center rounded bg-secondary p-2">
+              <img
+                src={data?.subImage_4}
+                className="w-full object-cover"
+                alt=""
+                onClick={() => (mainImageRef.current.src = data?.subImage_4)}
+              />
+            </div>
+          </div>
+          {/* Middle content  */}
+          <div className="product_responsive_2 ml-[1.875rem] flex w-[31.25rem] items-center justify-center bg-secondary mix-blend-darken">
             <img
-              src={data?.subImage_1}
-              className="w-full object-cover"
+              ref={mainImageRef}
+              src={data?.mainImage}
+              className="w-full object-cover max-sm:h-[384px]"
               alt=""
-              onClick={() => (mainImageRef.current.src = data?.subImage_1)}
             />
           </div>
-          <div className="flex h-[8.625rem] cursor-pointer items-center justify-center rounded bg-secondary p-2">
-            <img
-              src={data?.subImage_2}
-              className="w-full object-cover"
-              alt=""
-              onClick={() => (mainImageRef.current.src = data?.subImage_2)}
-            />
-          </div>
-          <div className="flex h-[8.625rem] cursor-pointer items-center justify-center rounded bg-secondary p-2">
-            <img
-              src={data?.subImage_3}
-              className="w-full object-cover"
-              alt=""
-              onClick={() => (mainImageRef.current.src = data?.subImage_3)}
-            />
-          </div>
-          <div className="flex h-[8.625rem] cursor-pointer items-center justify-center rounded bg-secondary p-2">
-            <img
-              src={data?.subImage_4}
-              className="w-full object-cover"
-              alt=""
-              onClick={() => (mainImageRef.current.src = data?.subImage_4)}
-            />
-          </div>
-        </div>
-        {/* Middle content  */}
-        <div className="ml-[1.875rem] flex w-[31.25rem] items-center justify-center bg-secondary mix-blend-darken">
-          <img
-            ref={mainImageRef}
-            src={data?.mainImage}
-            className="w-full object-cover"
-            alt=""
-          />
         </div>
 
         {/* Right content  */}
-        <div className="max-w-[25rem] translate-x-16">
+        <div className="max-w-[25rem] max-sm:mt-8 max-sm:max-w-full sm:translate-x-4">
           {/* Top  */}
           <h1 className="font-inter text-2xl font-semibold">{data?.name}</h1>
           <div className="mb-4 mt-4 flex items-center">
@@ -139,10 +141,10 @@ export const ProductDetail = () => {
             </div>
           </div>
           {/* Buy Now  */}
-          <div className="mt-6 flex h-11 items-center gap-4">
-            <div className="flex h-full min-w-[10rem] items-center justify-between rounded border border-r-[0px] border-[rgba(0,0,0,0.5)]">
+          <div className="mt-6 flex h-11 items-center gap-4 max-sm:h-[41px]">
+            <div className="flex h-full min-w-[10rem] items-center justify-between rounded border border-r-[0px] border-[rgba(0,0,0,0.5)] max-sm:min-w-[16rem]">
               <div
-                onClick={() => setAmount(amount - 1)}
+                onClick={() => setAmount(amount > 0 ? amount - 1 : amount)}
                 className="cursor-pointer border-r-[1px] border-[rgba(0,0,0,0.5)] p-[0.625rem_0.5rem]"
               >
                 <MinusIcon />
@@ -150,13 +152,13 @@ export const ProductDetail = () => {
               <span className="select-none text-center">{amount}</span>
               <div
                 onClick={() => setAmount(amount + 1)}
-                className="cursor-pointer rounded bg-secondary_2 p-[0.625rem_0.5rem]"
+                className="h-full cursor-pointer rounded bg-secondary_2 p-[0.625rem_0.5rem]"
               >
                 <PlusIcon />
               </div>
             </div>
-            <div className="h-11 basis-full">
-              <Button background="red" height="h-11" content="Buy Now" />
+            <div className="h-11 basis-full max-sm:h-full">
+              <Button background="red" height="h-full" content="Buy Now" />
             </div>
             <div className="rounded border-2 border-[rgba(0,0,0,0.5)] p-1">
               <HeartIcon />

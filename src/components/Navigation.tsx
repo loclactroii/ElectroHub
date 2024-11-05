@@ -16,7 +16,7 @@ export const Navigation = () => {
           <h1 className="font-inter text-2xl font-bold">ElectroHub</h1>
         </Link>
         {/* Navigation  */}
-        <div>
+        <div className="visible max-[900px]:hidden">
           <ul className="flex gap-12 font-poppins">
             <NavLink
               to="/"

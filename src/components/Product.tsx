@@ -32,11 +32,7 @@ export const Product = ({
   };
 
   return (
-    <div
-      className="mt-12 max-w-[16.875rem] cursor-pointer"
-      key={id}
-      onClick={() => handleClick(id)}
-    >
+    <div className="mt-12 max-w-[16.875rem] cursor-pointer" key={id}>
       <div className="group relative flex h-[15.625rem] w-[16.875rem] items-center justify-center overflow-hidden rounded bg-secondary p-3">
         {/* Sale  */}
         <span className="absolute left-3 top-3 rounded bg-secondary_2 p-[0.25rem_0.75rem] font-poppins text-xs text-white">

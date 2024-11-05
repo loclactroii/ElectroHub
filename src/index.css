@@ -4,6 +4,36 @@
 html {
   font-size: 16px;
 }
+@media (max-width: 1050px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 12px;
+  }
+
+  .product_responsive_1 {
+    max-width: 100%;
+    flex-direction: row-reverse;
+  }
+
+  .product_responsive_2 {
+    width: 100%;
+    flex: 1;
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  html {
+    font-size: 10px;
+  }
+}
+
 @layer utilities {
   .banner-active {
     opacity: 1;
@@ -39,6 +69,15 @@ html {
 
   .active {
     border-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .category-icon-active {
+    stroke: white;
+  }
+
+  .category-bg-active {
+    background-color: #db4444;
+    color: #fff;
   }
 }
 * {

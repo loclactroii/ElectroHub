@@ -38,7 +38,7 @@ export const Cart = () => {
         </div>
 
         {/* Payment  */}
-        <div className="mt-20 flex items-center justify-between">
+        <div className="mt-20 flex items-center justify-between max-sm:flex-col">
           <div className="flex gap-4 self-start">
             <input
               type="text"
@@ -47,29 +47,31 @@ export const Cart = () => {
             />
             <Button background="red" content="Apply Coupon" />
           </div>
-          <div className="w-[29.375rem] border-[1.5px] border-black p-[2rem_1.5rem]">
-            <h3 className="text-xl font-medium">Cart Total</h3>
-            <div className="mt-6 flex flex-col gap-4">
-              <div className="flex justify-between">
-                <span className="">Subtotal:</span>
-                <span>${totalAmount}</span>
-              </div>
-              <hr />
-              <div className="flex justify-between">
-                <span className="">Shipping:</span>
-                <span>Free</span>
-              </div>
-              <hr />
-              <div className="flex justify-between">
-                <span className="">Total:</span>
-                <span>${totalAmount}</span>
-              </div>
-              <div className="flex justify-center">
-                <Button
-                  onClick={() => navigate("/checkout")}
-                  background="red"
-                  content="Process to checkout"
-                />
+          <div className="flex max-sm:self-start">
+            <div className="w-[29.375rem] self-end border-[1.5px] border-black p-[2rem_1.5rem] max-sm:mt-8 sm:ml-8">
+              <h3 className="text-xl font-medium">Cart Total</h3>
+              <div className="mt-6 flex flex-col gap-4">
+                <div className="flex justify-between">
+                  <span className="">Subtotal:</span>
+                  <span>${totalAmount}</span>
+                </div>
+                <hr />
+                <div className="flex justify-between">
+                  <span className="">Shipping:</span>
+                  <span>Free</span>
+                </div>
+                <hr />
+                <div className="flex justify-between">
+                  <span className="">Total:</span>
+                  <span>${totalAmount}</span>
+                </div>
+                <div className="flex justify-center">
+                  <Button
+                    onClick={() => navigate("/checkout")}
+                    background="red"
+                    content="Process to checkout"
+                  />
+                </div>
               </div>
             </div>
           </div>

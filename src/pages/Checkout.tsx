@@ -9,7 +9,7 @@ export const Checkout = () => {
   const totalAmount = useSelector((state: RootState) => state.cart.totalAmount);
 
   return (
-    <div>
+    <form>
       <div className="mb-20 mt-20 flex gap-3">
         <span className="text-sm opacity-50">Account</span>
         <span className="text-sm opacity-50">/</span>
@@ -121,10 +121,10 @@ export const Checkout = () => {
           </div>
 
           <div className="inline-block">
-            <Button background="red" content="Place Order" />
+            <Button type="submit" background="red" content="Place Order" />
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 };

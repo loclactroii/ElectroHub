@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
+import ScrollToTop from "./helpers/scroolToTop.ts";
 
 let persistor = persistStore(store);
 
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
     <ContextProvider>
       <BrowserRouter>
         <PersistGate persistor={persistor}>
+          <ScrollToTop />
           <App />
         </PersistGate>
       </BrowserRouter>

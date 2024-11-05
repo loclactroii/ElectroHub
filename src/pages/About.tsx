@@ -2,7 +2,6 @@ import {
   DollarIcon,
   HeadPhonesIcon,
   InstagramIcon,
-  LinkedInIcon,
   LinkedInIcon_1,
   MarketIcon,
   MoneyBagIcon,
@@ -75,7 +74,7 @@ export const About = () => {
       </div>
       {/* Story  */}
       <div className="relative mb-[8.75rem] flex h-[38.0625rem] justify-between">
-        <div className="flex max-w-[32.8125rem] flex-col justify-center">
+        <div className="flex max-w-[32.8125rem] basis-full flex-col justify-center">
           <h1 className="font-inter text-[3.375rem] font-semibold">
             Our Story
           </h1>
@@ -92,15 +91,13 @@ export const About = () => {
             ranging from consumer.
           </p>
         </div>
-        <img
-          className="absolute right-[-12.4375rem] top-0"
-          src="/story.png"
-          alt=""
-        />
+        <div className="flex basis-full items-center">
+          <img className="top-0" src="/story.png" alt="" />
+        </div>
       </div>
 
       {/* Profit  */}
-      <div className="flex gap-[1.875rem]">
+      <div className="grid grid-cols-4 gap-[1.875rem] max-lg:grid-cols-2">
         {PROFITS.map((profit: Profit, index: number): JSX.Element => {
           return (
             <div
@@ -123,7 +120,7 @@ export const About = () => {
       </div>
 
       {/* ??  */}
-      <div className="relative mt-[8.75rem] flex justify-between">
+      <div className="relative mt-[8.75rem] flex justify-between gap-4">
         <div className="inline-flex w-[23.125rem] flex-col">
           <div className="flex items-end justify-center rounded bg-secondary">
             <img src="/tomcruise.png" alt="" />
@@ -202,10 +199,12 @@ export const About = () => {
                   {service.icon}
                 </div>
               </div>
-              <h2 className="mt-6 font-inter text-xl font-semibold">
+              <h2 className="mt-6 text-center font-inter text-xl font-semibold">
                 {service.service}
               </h2>
-              <span className="mt-2 text-sm">{service.benefit}</span>
+              <span className="mt-2 text-center text-sm">
+                {service.benefit}
+              </span>
             </div>
           );
         })}
